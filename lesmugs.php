@@ -18,7 +18,7 @@ $mugs='mugs';
 
 $conn= new mysqli($servername,$username,$password);
 
-if ($conn->connect_error){ die("Connection failed:".$conn->connect_error);}
+if ($conn->connect_error){ print_r("mugs".$conn->connect_error);}
 
 else{$conn->select_db($dbname);}
 
@@ -38,7 +38,7 @@ function affiche1ER (){
 
     }else{
 
-        die("ERREUR: " . $conn->error);
+        print_r("mugs" . $conn->error);
 
     }
 
@@ -56,7 +56,7 @@ function lemug(){
 
     $mugs=$_GET['mugs'];
 
-    $sql="INSERT INTO 'mugs' VALUES(' ','$mugs';'$conn') ";
+    $sql="INSERT INTO 'mugs' VALUES(['id'],'$mugs';'$conn') ";
   ;
 
     $conn->query($sql);
@@ -75,8 +75,13 @@ function lemug(){
 lemug();
 
 function elvmugs(){
-    global $conn;
 
+    global $conn;
+    $sql = "SELECT id,description from mugs"; $result = $conn->query($sql);
+
+    while($row = $result->fetch_assoc()) { echo"id =".$row['id']." mugs =".$row['description']."
+
+"; }
     $sql='SELECT * FROM `eleves_mugs`';
 
 
