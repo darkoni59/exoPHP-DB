@@ -105,7 +105,8 @@ echo "<hr>";
     <form action="index.php" method="get">
         <fieldset>
             <legend>suprimer un eleves</legend>
-            <input type="text" name="suprimer" placeholder="entrer ID de l'eleve a supprimer">
+            <label for="suprimer">suprimer un éleve</label>
+            <input type="text" name="suprimer" >
             <input type="submit" name="ids" value="suprimer">
         </fieldset>
     </form>
@@ -126,9 +127,8 @@ echo "<hr>";
 <?php
 update($_GET["id1"], $_GET["nom1"], $_GET["prenom1"], $_GET["age1"]);
 delete($_GET["suprimer"]);
-echo "<hr><hr>"
 ?>
-    <h1>Fiche Mugs</h1>
+    <h1>liste des  Mugs</h1>
 
 <?php
 function mugs($description){
