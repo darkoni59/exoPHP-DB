@@ -85,7 +85,7 @@ function formulaireEleve(){
         eleves($nom, $prenom, $age);
     }
     else{
-        echo "veuillez entrez des information";
+        echo " information";
     }
 }
 formulaireEleve();
