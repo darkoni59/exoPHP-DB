@@ -32,10 +32,22 @@ function affiche1ER (){
     $sql="SELECT id FROM mugs ";
 
     $result=$conn->query($sql);
+    if($conn->query($sql) === TRUE){
+
+        echo "Les ont été modifier<br>";
+
+    }else{
+
+        die("ERREUR: " . $conn->error);
+
+    }
 
     while($row = $result->fetch_assoc()) {
 
-        echo $row['mugs']." ".'<br>';}}
+        echo $row['mugs'].'<br>';}
+    $conn->query($sql);}
+
+
 
 affiche1ER();
 function lemug(){
@@ -44,7 +56,7 @@ function lemug(){
 
     $mugs=$_GET['mugs'];
 
-    $sql="INSERT INTO mugs VALUES(' ','$mugs';'$conn') ";
+    $sql="INSERT INTO 'mugs' VALUES(' ','$mugs';'$conn') ";
   ;
 
     $conn->query($sql);
@@ -65,7 +77,9 @@ lemug();
 function elvmugs(){
     global $conn;
 
-   $sql= "SELECT mugs FROM eleves_mugs,mugs WHERE eleves_mugs.id ";
-$result=$conn->query($sql);
+    $sql='SELECT * FROM `eleves_mugs`';
+
+
+$conn->query($sql);
 }
 elvmugs();
